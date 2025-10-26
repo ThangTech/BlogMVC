@@ -168,3 +168,4 @@ D:\MVC\BlogMVC\Blog\obj\Debug\net8.0\refint\Blog.dll
 D:\MVC\BlogMVC\Blog\obj\Debug\net8.0\Blog.pdb
 D:\MVC\BlogMVC\Blog\obj\Debug\net8.0\Blog.genruntimeconfig.cache
 D:\MVC\BlogMVC\Blog\obj\Debug\net8.0\ref\Blog.dll
+D:\MVC\BlogMVC\Blog\obj\Debug\net8.0\Blog.sourcelink.json
