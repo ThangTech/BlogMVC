@@ -8,16 +8,18 @@
 </div>
 
 <div class="container py-2">
-    <table class="table table-vertical-borders">  
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Heading</th>
-            <th>Tags</th>
-            <th> </th>
-        </tr>
-        </thead>
-        <tbody>
+    @if (Model is not null)
+    {
+        <table class="table table-vertical-borders">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Heading</th>
+                <th>Tags</th>
+                <th> </th>
+            </tr>
+            </thead>
+            <tbody>
             @foreach (var blogPost in Model)
             {
                 <tr>
@@ -38,6 +40,11 @@
                     </td>
                 </tr>
             }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No blog posts found.</p>
+    }
 </div>

@@ -27,8 +27,8 @@ public class AdminBlogPostsController : Controller
         {
             Tags = tags.Select(x => new SelectListItem()
             {
-                Text = x.Name,
-                Value = x.Id.ToString()
+                Text = x.Name,//Ten gia tri
+                Value = x.Id.ToString() // nhận được Id dưới dạng string
             })
         };
         return View(model);
