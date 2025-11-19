@@ -2,11 +2,13 @@
 using Blog.Models.Domain;
 using Blog.Models.ViewModels;
 using Blog.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Controllers;
 
+[Authorize(Roles = "Admin")]   //Nhảy sang trang đăng nhập neu chưa đăng nhập
 public class AdminTagsController : Controller
 {
     private readonly ITag _tagRepository;
@@ -16,14 +18,14 @@ public class AdminTagsController : Controller
     {
         _tagRepository = tagRepository;
     }
-
+    
     [HttpGet]
     public IActionResult Add()
     {
         return View();
     }
 
-    [HttpPost]
+    [HttpPost] 
     [ActionName("Add")]
     public async Task<IActionResult> Add(AddTagRequest addTagRequest)
     {

@@ -171,3 +171,4 @@ D:\MVC\BlogMVC\Blog\obj\Debug\net8.0\ref\Blog.dll
 D:\MVC\BlogMVC\Blog\obj\Debug\net8.0\Blog.sourcelink.json
 D:\MVC\BlogMVC\Blog\bin\Debug\net8.0\CloudinaryDotNet.dll
 D:\MVC\BlogMVC\Blog\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\MVC\BlogMVC\Blog\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

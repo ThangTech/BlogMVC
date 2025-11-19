@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> singInManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,18 +27,35 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-area="" asp-action="Add" asp-controller="AdminTags">Add Tag</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-action="List" asp-controller="AdminTags">Show All Tags</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-action="Add" asp-controller="AdminBlogPosts">Add Blog Post</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-action="List" asp-controller="AdminBlogPosts">Show Blog Post</a></li>
-                            </ul>
-                        </li>
+                        @if (singInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-area="" asp-action="Add" asp-controller="AdminTags">Add Tag</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-action="List" asp-controller="AdminTags">Show All Tags</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-action="Add" asp-controller="AdminBlogPosts">Add Blog Post</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-action="List" asp-controller="AdminBlogPosts">Show Blog Post</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
+                    <div class="d-flex align-items-center">
+                        @if (singInManager.IsSignedIn(User))
+                        {
+                            <div class="me-3 text-light">
+                                @User?.Identity?.Name
+                            </div>
+                            <a class="btn me-3 bg-light text-dark" asp-area="" asp-action="Logout" asp-controller="Account">Logout</a>
+                        }
+                        else
+                        {
+                            <a class="btn me-3 bg-light text-dark" asp-area="" asp-action="Register" asp-controller="Account">Register</a>
+                            <a class="btn me-3 bg-light text-dark" asp-area="" asp-action="Login" asp-controller="Account">Login</a>
+                        }
+                    </div>
                 </div>
             </div>
         </nav>
